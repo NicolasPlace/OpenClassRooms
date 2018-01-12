@@ -1,0 +1,10 @@
+/*.rouge{
+  background-color: yellow;
+}*/
+.rouge { color: red; }
+
+   .vert { color: green; }
+
+   .petit { font-size: 100%; }
+
+   .grand {font-size: 250%; }
