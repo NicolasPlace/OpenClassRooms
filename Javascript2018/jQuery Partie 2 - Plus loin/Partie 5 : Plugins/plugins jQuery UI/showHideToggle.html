@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
+  <link rel="stylesheet" href="jquery-ui/jquery-ui.theme2.css">
+  <style type="text/css">
+  #contenu
+  {
+    width: 240px;
+    height: 135px;
+    border: 1px gray solid;
+    background-color: #aaeae1;
+  }
+  #contenu h3
+  {
+    margin: 0;
+    padding: 0.4em;
+    text-align: center;
+    background-color: #777;
+  }
+  </style>
+
+</head>
+<body>
+  <div id="contenu" style="width: 400px;">
+    <h3>Un titre</h3>
+    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+  </div>
+  <script src="jquery-3.3.1.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <!--<script src="jquery-ui/jquery-ui.min.js"></script>-->
+  <script>
+  $(function() {
+    $('#contenu').show('explode', 2000, function(){
+      $(this).hide("blind", 2000)
+    });
+  });
+  </script>
+</body>
+</html>

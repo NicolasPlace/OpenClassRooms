@@ -1,0 +1,11 @@
+.col-md-8, .col-md-4{
+  border: 1px solid black;
+}
+
+
+
+@media (min-width: 1200px) {
+ .container {
+   width: 1230px;
+ }
+}

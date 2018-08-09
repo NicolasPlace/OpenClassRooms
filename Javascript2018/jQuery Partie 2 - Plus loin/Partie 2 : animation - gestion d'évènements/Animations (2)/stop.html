@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="stopFin">Stop et fin</button>
+  <button id="stopAnnuleFin">Stop, annule et fin</button>
+  <button id="stop">Stop</button>
+  <button id="reprise">Reprise</button><br /><br />
+  <img src="chien.jpeg" style="position: relative;">
+
+  <script src="jquery-3.3.1.js"></script>
+  <script>
+  $(function() {
+    $('img').animate({left: '+=500'}, 2000).animate({top: '+=300'}, 2000);
+    $('#stopFin').click( function() {
+      $('img').stop(false, true);
+    });
+    $('#stopAnnuleFin').click( function() {
+      $('img').stop(true, true);
+    });
+    $('#stop').click( function() {
+      $('img').stop(true, false);
+    });
+    $('#reprise').click( function() {
+      $('img').css('left', 0).css('top', 0);
+      $('img').animate({left: '+=500'}, 2000).animate({top: '+=300'}, 2000);
+    });
+  });
+  </script>
+
+</body>
+</html>

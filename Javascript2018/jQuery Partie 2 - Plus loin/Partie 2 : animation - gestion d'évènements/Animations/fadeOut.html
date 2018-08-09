@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style type="text/css">
+  img { position: absolute; left: 0px; top: 0px; }
+  #img1 {z-index: 1;}
+  #img2 {z-index: 2;}
+  #img3 {z-index: 3;}
+  #img4 {z-index: 4;}
+  #img5 {z-index: 5;}
+  </style>
+</head>
+<body>
+
+  <img src="chat.jpeg" id="img5">
+  <img src="dino.jpeg" id="img4">
+  <img src="lapin.jpeg" id="img3">
+  <img src="diplo.jpeg" id="img2">
+  <img src="trex.jpeg" id="img1">
+
+  <script src="jquery-3.3.1.js"></script>
+  <script>
+  $(function() {
+    $('img').first().fadeOut(2000, function suivante() {
+      $(this).next('img').fadeOut(2000,suivante);
+    });
+  });
+  </script>
+
+</body>
+</html>

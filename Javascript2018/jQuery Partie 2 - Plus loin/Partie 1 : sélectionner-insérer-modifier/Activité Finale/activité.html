@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+  body {
+    margin: 0;
+  }
+  #gauche {
+    float: left;
+    width: 60%;
+    height: 1000px;
+    background-color: #EFECCA;
+  }
+  #droite {
+    background-color: #CEFFF8;
+    height: 1000px;
+    padding : 10px;
+    padding-left: 61%;
+  }
+  hr {
+    color : black;
+    margin-bottom: 20px;
+  }
+
+  p#attention{
+    color:red;
+  }
+
+  div#gauche span{
+    display : inline-block;
+    width : 100px;
+    margin-top : 20px;
+    margin-left : 20px;
+  }
+
+  div#gauche input{
+    width : 20%;
+  }
+
+  div#gauche button{
+    margin-top : 20px;
+    margin-left : 20px;
+    border-radius: 5px;
+    background-color: white;
+  }
+
+  div#droite input{
+    width : 30%;
+    margin-left: 10px;
+    margin-right:10px;
+    border-radius: 2px;
+  }
+
+  div#droite button{
+    border-radius : 5px;
+    background-color: white;
+    margin-bottom : 20px;
+  }
+
+  div#droite button#idTexte{
+    margin-left : 25px;
+    margin-right : 25px;
+  }
+
+  div#droite button#annuler{
+    margin-left : 10px;
+  }
+</style>
+</head>
+<body>
+  <div id="gauche">
+  </div>
+  <div id="droite">
+    Utilisez ces boutons pour créer votre formulaire<br><br>
+    <button>Label</button>
+    <button>Zone de texte</button>
+    <button>Bouton</button>
+    <hr>
+  </div>
+  <script src="js/jquery-3.3.1.js"></script>
+  <script>
+  $(function() {
+    // Je donne un id à chaque bouton, afin de mieux les identifier
+    // Je leur donne une classe 'actif' pour mieux cibler les boutons actifs par la suite
+    // Et je leur donne l'attribut 'disabled : false' pour les laisser actifs au rechargement de la page
+    $('button:first').attr({'id':'label', 'class':'actif', 'disabled':false});
+    $('button:eq(1)').attr({'id':'idTexte', 'class':'actif', 'disabled':false});
+    $('button:last').attr({'id':'bouton', 'class':'actif', 'disabled':false});
+
+    //Fonction rassemblant les actions communes au moment de cliquer sur "OK" ou "annuler" partie droite
+    function actionsOkAnnuler(){
+          // On fait disparaître la <div> 'conteneur' et le message d'erreur s'il y en a un...
+          $('div#conteneur, p#attention').fadeOut(500, function(){
+          $(this).remove();//...puis on supprime le conteneur et le message d'erreur
+          // On réactive les boutons, et on rend la classe 'actif' aux boutons
+          $('div#droite button').attr("disabled", false).addClass('actif');
+      });
+    };
+
+    // Actions communes lorsque l'on clique sur l'un des boutons (label/zone de texte/bouton) de la partie droite
+    $('div#droite button').on("click", function() {
+      // Création d'une <div> 'conteneur' après la balise <hr>
+      $('hr').after('<div id="conteneur"></div>');
+      // On retire l'ombre du bouton cliqué
+      $('div#droite button').css('box-shadow','none');
+      // On supprime la classe 'actif' des boutons (pour éviter l'ombre au survol), et on désactive les boutons avec l'attribut 'disabled' mis sur 'true'
+      $('div#droite button').removeClass('actif').attr('disabled',true);
+    });
+
+    // Sélection du bouton 'label' auquel on applique un évènement au click
+    $('button#label').click(function() {
+      //Ajout du contenu (texte du label + input + ok + annuler) dans la <div> 'conteneur'
+      $('#conteneur').append('Texte du label <input type="text" id="nomLabel"><button class="actif" id="valideLabel">OK</button><button class="actif" id="annuler">Annuler</button>');
+      //Ajout d'une <div> où apparaîtra le message d'aide
+      $('#conteneur').append('<div id="aide"></div>');
+      //Utilisation de la méthode .load() avec en paramètres la page a appelée, et l'élément concerné , pour mettre à jour la <div> aide
+      $('div#aide').load('html/donnees.html #aideLabel');
+      // On ajoute la méthode .hide() pour cacher ce qui est créé, puis le faire apparaître avec fadeIn()
+      $('#conteneur').hide().fadeIn(700);
+    });
+
+    // Sélection du bouton 'Zone de texte' auquel on applique un évènement au click
+    $('button#idTexte').click(function() {
+      //Ajout du contenu (id de la zone de texte + input + ok + annuler) dans la <div> 'conteneur'
+      $('#conteneur').append('Id de la zone de texte <input type="text" id="nomId"><button class="actif" id="valideTexte">OK</button><button class="actif" id="annuler">Annuler</button>');
+      //Ajout d'une <div> où apparaîtra le message d'aide
+      $('#conteneur').append('<div id="aide"></div>');
+      //Utilisation de la méthode .load() avec en paramètres la page a appelée, et l'élément concerné , pour mettre à jour la <div> aide
+      $('div#aide').load('html/donnees.html #aideZoneDeTexte');
+      // On ajoute la méthode .hide() pour cacher ce qui est créé, puis le faire apparaître avec fadeIn()
+      $('#conteneur').hide().fadeIn(700);
+    });
+
+    // Sélection du bouton 'Bouton' auquel on applique un évènement au click
+    $('button#bouton').click(function() {
+      //Ajout du contenu (nom du bouton + input + ok + annuler) dans la <div> 'conteneur'
+      $('#conteneur').append('Nom du bouton <input type="text" id="nomBouton"><button class="actif" id="valideBouton">OK</button><button class="actif" id="annuler">Annuler</button>');
+      //Ajout d'une <div> où apparaîtra le message d'aide
+      $('#conteneur').append('<div id="aide"></div>');
+      //Utilisation de la méthode .load() avec en paramètres la page a appelée, et l'élément concerné , pour mettre à jour la <div> aide
+      $('div#aide').load('html/donnees.html #aideBouton');
+      // On ajoute la méthode .hide() pour cacher ce qui est créé, puis le faire apparaître avec fadeIn()
+      $('#conteneur').hide().fadeIn(700);
+    });
+
+    // Actions lorsque l'on clique sur le "OK" permettant de valider le label
+    $('#droite').on("click", "button#valideLabel", function() {
+      var $valeurLabel = $('input#nomLabel').val(); // on récupère la valeur de la zone de saisie du label
+      // On vérifie si un 'span label' a été créé précédemment dans la partie gauche (s'il y en a déjà un, on ne peut pas en créer un autre à la suite)
+      if ($('div#gauche').children().last().is('span')) {
+        if (!$('div#droite').children().last().is('p')) {// Affichage d'un message d'erreur s'il n' y en a pas déjà un
+        var $attention = $('<p id="attention"> Attention, le dernier élément inséré est déjà un "label", veuillez créer son input correspondant en cliquant sur "zone de texte"</p>');
+        $attention.appendTo($('div#droite'));
+      }
+    } else {
+      // Si tout est ok, alors le label s'inscrit partie gauche dans un span
+      $('<span>' + $valeurLabel + '</span>').appendTo($('div#gauche'));
+      actionsOkAnnuler(); //appel de la fonction qui exécute les actions communes si on clique sur "OK"/"Annuler"
+    }
+  });
+
+  // Actions lorsque l'on clique sur le "OK" permettant de valider l'id de la zone de texte
+  $('#droite').on("click", "button#valideTexte", function() {
+    var $valeurTexte = $('input#nomId').val();// on récupère la valeur de la zone de saisie de l'input
+    // On vérifie si un 'input' a été créé juste avant dans la partie gauche (on vérifie si le dernier élément inscrit est <br> car l'input est suivi d'un <br> lors de sa création)
+    if ($('div#gauche').children().last().is('br')) {
+      if (!$('div#droite').children().last().is('p')) {// Affichage d'un message d'erreur s'il n' y en a pas déjà un
+        var $attention = $('<p id="attention"> Attention, le dernier élément inséré est un "input", veuillez créer un label ou un bouton</p>');
+        $attention.appendTo($('div#droite'));
+      }
+      // Sinon vérification si un 'bouton' a été créé juste avant dans la partie gauche
+    } else if ($('div#gauche').children().last().is('div')) {
+      if (!$('div#droite').children().last().is('p')) {// Affichage d'un message d'erreur s'il n' y en a pas déjà un
+        var $attention = $('<p id="attention"> Attention, le dernier élément inséré est un "bouton", veuillez créer un label pour continuer</p>');
+        $attention.appendTo($('div#droite'));
+      }
+      // Sinon vérification si c'est bien un 'span label' qui a été créé juste avant dans la partie gauche
+    } else if (!$('div#gauche').children().last().is('span')) {
+      if (!$('div#droite').children().last().is('p')) {// Affichage d'un message d'erreur s'il n' y en a pas déjà un
+        var $attention = $('<p id="attention"> Il faut créer un label avant de créer un input</p>');
+        $attention.appendTo($('div#droite'));
+      }
+      //Si tout est ok, alors le champ input s'inscrit partie gauche à côté du 'span label'
+    } else {
+      $('<input id="' + $valeurTexte + '" type = "text"><br>').appendTo($('div#gauche'));
+      actionsOkAnnuler(); //appel de la fonction qui exécute les actions communes si on clique sur  "OK"/"Annuler"
+    }
+  });
+
+  // Actions lorsque l'on clique sur le "OK" permettant de valider le nom du bouton
+  $('#droite').on("click", "button#valideBouton", function() {
+    var $valeurBouton = $('input#nomBouton').val();
+    // Vérification si un 'span label' a été créé juste avant dans la partie gauche
+    if ($('div#gauche').children().last().is('span')) {
+      if (!$('div#droite').children().last().is('p')) {// Affichage d'un message d'erreur s'il n' y en a pas déjà un
+        var $attention = $('<p id="attention"> Attention, le dernier élément inséré est un "label", veuillez créer son input correspondant en cliquant sur "zone de texte"</p>');
+        $attention.appendTo($('div#droite'));
+      }
+      // Sinon vérification si un 'bouton' a été créé juste avant dans la partie gauche (je vérifie si le dernier élément créé est une <div> car le bouton est dans une <div> à sa création)
+    } else if ($('div#gauche').children().last().is('div')) {
+      if (!$('div#droite').children().last().is('p')) {// Affichage d'un message d'erreur s'il n' y en a pas déjà un
+        var $attention = $('<p id="attention"> Attention, le dernier élément inséré est déjà un "bouton", veuillez créer un label en cliquant sur "label"</p>');
+        $attention.appendTo($('div#droite'));
+      }
+      // Sinon vérification si c'est bien un 'input' qui  a été créé juste avant dans la partie gauche
+    } else if (!$('div#gauche').children().last().is('br')) {
+      if (!$('div#droite').children().last().is('p')) {// Affichage d'un message d'erreur s'il n' y en a pas déjà un
+        var $attention = $('<p id="attention"> Merci de compléter votre formulaire par un label et un input !</p>');
+        $attention.appendTo($('div#droite'));
+      }
+      // Si tout est ok, on affiche le bouton partie gauche
+    } else {
+      $('<div><button class="actif">' + $valeurBouton + '</button></div>').appendTo($('div#gauche'));
+      actionsOkAnnuler(); //appel de la fonction qui exécute les actions communes si on clique sur "OK"/"Annuler"
+    }
+  });
+
+  // Lorsque l'on clique sur le bouton "annuler"
+  $('#droite').on("click", "button#annuler", function(){
+    actionsOkAnnuler();//appel de la fonction qui exécute les actions communes si on clique sur "OK"/"Annuler"
+  });
+
+  // Sélection des parties gauche et droite
+  $('#droite,#gauche')
+  // Au survol, j'applique une ombre sur les boutons actifs
+  // Les boutons actifs sont ciblés grâce à leur classe .actif ; c'est pourquoi j'utilisais :
+  // addClass(actif)  au click sur "OK" ou "annuler" ; les boutons redevenaient 'actifs'
+  // removeClass(actif) quand on clique sur les boutons du haut ; les boutons perdent leur classe actif, et donc pas d'ombre possible
+  .on("mouseover", "button.actif", function(){
+    $(this).css('box-shadow','6px 6px 6px #6f6f6f')
+  })
+  // Au click des boutons actifs, l'ombre devient verte
+  .on("mousedown", "button.actif", function(){
+    $(this).css('box-shadow','3px 3px 3px green')
+  })
+  // Lorsqu'on ne survole plus les boutons actifs, on retire les ombres
+  .on("mouseleave", "button.actif", function(){
+    $(this).css('box-shadow','none')
+  });
+});
+
+</script>
+</body>
+</html>

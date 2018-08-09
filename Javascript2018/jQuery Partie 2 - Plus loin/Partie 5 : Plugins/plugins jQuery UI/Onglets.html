@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
+  <link rel="stylesheet" href="jquery-ui/jquery-ui.theme2.css">
+</head>
+<body>
+  <div id="onglets">
+    <ul>
+      <li><a href="#onglet-1">Titre onglet 1</a></li>
+      <li><a href="#onglet-2">Titre onglet 2</a></li>
+      <li><a href="#onglet-3">Titre onglet 3</a></li>
+    </ul>
+    <div id="onglet-1">
+      <!--contenu -->
+    </div>
+    <div id="onglet-2">
+      <!--contenu -->
+    </div>
+    <div id="onglet-3">
+      <!--contenu -->
+    </div>
+  </div>
+
+  <script src="jquery-3.3.1.js"></script>
+  <script src="jquery-ui/jquery-ui.min.js"></script>
+  <script>
+  $(function() {
+      $('#onglets').tabs();
+  });
+  </script>
+
+</body>
+</html>

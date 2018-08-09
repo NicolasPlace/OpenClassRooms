@@ -1,0 +1,19 @@
+Pour commencer l'activité, j'ai d'abord écrit mon fichier HTML, puis mon fichier CSS puis enfin mon fichier JS contenant le code jQuery
+
+Fichier HTML :
+- J'ai écrit ma liste de messages <li> complètement
+- J'ai rajouté une div <conteneur> afin de pouvoir mettre 2 fonds en même temps, sans rentrer en conflit avec <body>
+- J'ai lié mon fichier CSS et mon fichier JS
+
+
+Fichier CSS :
+- J'ai mis les paramètres visuels pour les 4 messages
+- J'ai laissé le 1er message affiché; et, pour les 3 derniers messages censés apparaître progressivement, je leur ai appliqué un "display : none" afin de les faire disparaître/cacher
+
+
+Fichier JS :
+- C'est dans ce fichier qu'on fait réapparaître les éléments de la liste écrite en HTML
+- Quand on clique sur un <li> de la liste, une fonction s'éxécute afin de modifier les contenus, fonds, position etc... de la page
+
+
+Résumé : J'ai écrit la liste complètement en HTML, puis je fais disparaître les éléments souhaités avec le CSS, et je les fais réapparaître avec le code JS.

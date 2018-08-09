@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style type="text/css">
+    #balle {
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      border: black 2px solid;
+      border-radius : 10px;
+      position: relative;
+    }
+  </style>
+
+</head>
+<body>
+  <div id="balle"></div>
+  <script src="jquery-3.3.1.js"></script>
+  <script>
+    $(function() {
+      function bis() {
+        $('#balle').animate({left: '+=200'}, 'slow')
+                   .animate({top: '+=200'}, 'slow')
+                   .animate({left: '-=200'}, 'slow')
+                   .animate({top: '-=200'}, 'slow');
+      };
+      setInterval(bis, 2400);
+    });
+  </script>
+
+</body>
+</html>

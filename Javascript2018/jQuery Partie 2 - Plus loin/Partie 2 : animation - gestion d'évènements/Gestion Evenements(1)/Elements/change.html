@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <form>
+  Sélectionnez une valeur dans la liste déroulante
+  <select>
+    <option>J'aime jQuery</option>
+    <option>J'adore jQuery</option>
+    <option>Je raffole de jQuery</option>
+    <option>jQuery ? Jamais entendu parler !</option>
+  </select>
+</form><br />
+
+<span id="resultat"></span><br />
+
+<script src="jquery-3.3.1.js"></script>
+<script>
+  $(function() {
+    $('select').change(function() {
+        $('#resultat').text('Vous venez de sélectionner "' + $(this).val() +'".');
+    });
+  });
+</script>
+</body>
+</html>

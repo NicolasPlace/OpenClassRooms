@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <span id="resultat"></span>
+
+<script src="jquery-3.3.1.js"></script>
+<script>
+  $(function() {
+    $(window).resize(function() {
+      var taille = 'Taille de la fenêtre : ' + $(window).width() + 'px x ' + $(window).height() + 'px';
+      $('#resultat').text(taille);
+    });
+  });
+  </script>
+</body>
+</html>

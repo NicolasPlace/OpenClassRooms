@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="bonjour">Cliquez ici</button>
+
+  <script src="jquery-3.3.1.js"></script>
+  <script>
+    $(function() {
+      $('#bonjour').on('bonjour_jquery', function(event, param) {
+        alert(param + ', jQuery vous dit bonjour !');
+      });
+      $('#bonjour').click(function() {
+        $('#bonjour').trigger('bonjour_jquery', 'Michel');
+      });
+    });
+  </script>
+
+
+</body>
+</html>

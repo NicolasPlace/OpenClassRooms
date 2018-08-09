@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <table id="monTableau">
+    <caption>Tableau Exercice 1</caption>
+    <thead><!-- en-tête -->
+      <tr id="maLigne"><!-- première ligne -->
+        <th> Première cellule</th>
+        <th> deuxième cellule</th>
+        <th> troisième cellule</th>
+        <th> quatrième cellule</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><!-- seconde ligne du tableau et première de tbody-->
+        <td> Première cellule de la ligne 2</td>
+        <td> 2e cellule de la ligne 2</td>
+        <td> 3e cellule de la ligne 2</td>
+        <td> 4e cellule de la ligne 2</td>
+
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr><!-- seconde ligne -->
+        <td> Première cellule de la ligne 3</td>
+        <td> 2e cellule de la ligne 3</td>
+        <td> 3e cellule de la ligne 3</td>
+        <td> 4e cellule de la ligne 3</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <table id="monTableau2">
+    <caption>Tableau Exercice 2</caption>
+    <thead><!-- en-tête -->
+      <tr id="maLigne2"><!-- première ligne -->
+        <th> Première cellule</th>
+        <th> deuxième cellule</th>
+        <th> troisième cellule</th>
+        <th> quatrième cellule</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><!-- seconde ligne du tableau et première de tbody-->
+        <td> Première cellule de la ligne 2</td>
+        <td> 2e cellule de la ligne 2</td>
+        <td> 3e cellule de la ligne 2</td>
+        <td> 4e cellule de la ligne 2</td>
+
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr><!-- seconde ligne -->
+        <td> Première cellule de la ligne 3</td>
+        <td> 2e cellule de la ligne 3</td>
+        <td> 3e cellule de la ligne 3</td>
+        <td> 4e cellule de la ligne 3</td>
+      </tr>
+    </tfoot>
+  </table>
+
+<p>Tableau exercice 3</p>
+  <form method="post" action="">
+    <input type="text" name="titre" id="titre" />
+    <input type="text" name="auteur" id="auteur" />
+    <input type="button" onclick="ajouterLigneDateCroissante();" value="Enregistrer"/>
+  </form>
+
+
+  <table id="tableau" border="1">
+    <thead>
+      <tr>
+        <th>Titre</th>
+        <th>Auteur</th>
+        <th>Jour</th>
+        <th>Mois</th>
+        <th>Année</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Premier article</td>
+        <td>Pierre-Louis</td>
+        <td>02</td>
+        <td>06</td>
+        <td>2017</td>
+      </tr>
+      <tr>
+        <td>Mise-à-jour du système</td>
+        <td>Admin</td>
+        <td>01</td>
+        <td>01</td>
+        <td>2020</td>
+      </tr>
+      <tr>
+        <td>Le site dans le futur !</td>
+        <td>MystèreX</td>
+        <td>20</td>
+        <td>12</td>
+        <td>2022</td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <br>
+
+  <table id="tableau2" border>
+    <caption>Tableau Exercice 4</caption>
+	<thead>
+		<tr>
+			<th>Titre</th>
+			<th>Auteur</th>
+			<th>Jour</th>
+			<th>Mois</th>
+			<th>Année</th>
+			<th>Supprimer</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Premier article</td>
+			<td>Pierre-Louis</td>
+			<td>02</td>
+			<td>06</td>
+			<td>2007</td>
+			<td onclick="supprimerLigne(this.parentNode.rowIndex);">X</td>
+		</tr>
+		<tr>
+			<td>Mise-à-jour du système</td>
+			<td>Admin</td>
+			<td>01</td>
+			<td>01</td>
+			<td>2010</td>
+			<td onclick="supprimerLigne(this.parentNode.rowIndex);">X</td>
+		</tr>
+		<tr>
+			<td>Le site dans le futur !</td>
+			<td>MystèreX</td>
+			<td>20</td>
+			<td>12</td>
+			<td>2012</td>
+			<td onclick="supprimerLigne(this.parentNode.rowIndex);">X</td>
+		</tr>
+	</tbody>
+</table>
+  <script>
+  //===================EXERCICE 1 ============================================//
+  //Modifier la couleur des lignes selon qu'elles soient paires ou impaires
+  var arrayLignes = document.getElementById("monTableau").rows; //on récupère les lignes dans un array
+  var longueur = arrayLignes.length //on récupère le nombre de lignes
+  var i = 0 ; // compteur
+
+  while(i < longueur){
+    if(i % 2 == 0){//lignes pairesor = "#829eeb";
+    }
+    i++;
+  }
+
+  //Avec les cellules
+  var arrayCellules = document.getElementById("maLigne").cells;
+  var nombre = arrayCellules.length //on récupère le nombre de lignes
+  var i = 0 ; // compteur
+
+  while(i < nombre){
+    if(i % 2 == 0){//lignes paires
+      arrayCellules[i].style.backgroundColor = "red";
+    }else{//lignes impaires
+      arrayCellules[i].style.backgroundColor = "pink";
+    }
+    i++;
+  }
+
+  //===================EXERCICE 2 ============================================//
+  var arrayLignes = document.getElementById("monTableau2").rows; //on récupère les lignes du tableau
+  var nombreLignes = arrayLignes.length;//on peut donc appliquer la propriété length
+
+
+  for(var i=0; i<nombreLignes; i++)//on peut directement définir la variable i dans la boucle
+  {
+    var arrayColonnes = arrayLignes[i].cells;//on récupère les cellules de la ligne
+    var nombreCellules = arrayColonnes.length;
+
+    for(var j=0; j<nombreCellules; j++)
+    {
+      if(j % 2 == 0)//si la clé est paire
+      {
+        arrayColonnes[j].style.backgroundColor = "#bdcbf5";
+      }
+      else //elle est impaire
+      {
+        arrayColonnes[j].style.backgroundColor = "#829eeb";
+      }
+    }
+  }
+
+  //===================COURS INSERTION DE DONNEES  ============================================//
+  function ajouterLigne()
+  {
+    var tableau = document.getElementById("tableau");
+
+    var ligne = tableau.insertRow(-1);//on a ajouté une ligne
+
+    var colonne1 = ligne.insertCell(0);//on a une ajouté une cellule
+    colonne1.innerHTML += document.getElementById("titre").value;//on y met le contenu de titre
+
+    var colonne2 = ligne.insertCell(1);//on ajoute la seconde cellule
+    colonne2.innerHTML += document.getElementById("auteur").value;
+
+    var date = new Date();
+    var colonne3 = ligne.insertCell(2);
+    colonne3.innerHTML += date.getDate();//on ajoute le jour du mois
+
+    var colonne4 = ligne.insertCell(3);
+    colonne4.innerHTML += date.getMonth()+1;//les mois commencent par 0
+
+    var colonne5 = ligne.insertCell(4);
+    colonne5.innerHTML += date.getFullYear();
+  };
+
+  //===================EXERCICE 3 ============================================//
+
+  function ajouterLigneDateCroissante()
+  {
+    var arrayLignes = document.getElementById("tableau").rows;
+    	var date = new Date();
+    	var jour = date.getDate();
+    	var mois = date.getMonth()+1;
+    	var annee = date.getFullYear();
+    	var i=1;//car la première ligne correspond à thead
+
+    	while(1==1)//on fait une boucle infinie car on arrête la boucle avec le break
+    	{
+    		if(arrayLignes[i].cells[4].innerHTML >= annee && arrayLignes[i].cells[3].innerHTML >= mois && arrayLignes[i].cells[2].innerHTML > jour)
+    		{//si la date est dans le futur
+    		//l'inverse de < est >= et celui de <= est > ; faites bien attention à cela
+    			break;
+    		}
+    		i++;
+    	}
+    	//i représente donc maintenant l'indice de la ligne à insérer
+
+    	var ligne = document.getElementById("tableau").insertRow(i);
+
+    	ligne.insertCell(0).innerHTML += document.getElementById("titre").value;//on y met le contenu de titre
+    	ligne.insertCell(1).innerHTML += document.getElementById("auteur").value;
+    	ligne.insertCell(2).innerHTML += jour;//on ajoute le jour du mois
+    	ligne.insertCell(3).innerHTML += mois;//les mois commencent par 0
+    	ligne.insertCell(4).innerHTML += annee;
+  };
+
+  //===================EXERCICE 4 ============================================//
+  function supprimerLigne(num)
+  {
+  	document.getElementById("tableau2").deleteRow(num);
+  }
+
+  </script>
+</body>
+</html>

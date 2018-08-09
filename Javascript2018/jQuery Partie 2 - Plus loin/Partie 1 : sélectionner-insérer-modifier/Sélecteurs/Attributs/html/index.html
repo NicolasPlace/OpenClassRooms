@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sélecteurs CSS</title>
+  </head>
+  <body>
+    <img src="../images/chien.jpeg" title="animal canard" border="11">
+    <img src="../images/chat.jpeg" title="animal chat" border="4">
+    <img src="../images/cheval.jpeg" title="cheval" border="2">
+    <img src="../images/lion.jpeg" title="animal chien"  border="8">
+    <img src="../images/oiseau.jpeg" title="girafe" border="4">
+
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+      $(function() {
+        // Le code jQuery sera inséré ici
+        //$('[border*="1"]').css('border-color','red'); //modifie la 1ere image
+        //$('[title~="animal"]').css('border-color','red'); // modifie images 1, 2 , 3
+        //$('[src$="e.jpg"]').css('border-color','red'); // modifie aucune images
+        //$('[border!="15"]').css('border-color','red'); // modifie toutes les images
+        $('[src^="../images/ch"]').css('border-color','red'); //modifie images 1,2,3
+      });
+    </script>
+  </body>
+</html>

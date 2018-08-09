@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  div {
+    background:yellow;
+    font-weight:bold;
+    cursor:pointer;
+    padding:8px;
+  }
+  </style>
+</head>
+<body>
+  <div id="master">
+    <div>Cliquez pour insérer un autre &ltdiv&gt</div>
+  </div>
+  <button id="suppr">Supprimer la délégation d'événements</button>
+
+  <script src="jquery-3.3.1.js"></script>
+  <script>
+  $('#master').on('click', 'div', function(){
+    $(this).after('<div>Ce &lt;div&gt; a les mêmes caractéristiques que son parent</div>');
+  });
+  $('#suppr').on('click', function() {
+    $('#master').off('click','div');
+  });
+
+  </script>
+
+</body>
+</html>

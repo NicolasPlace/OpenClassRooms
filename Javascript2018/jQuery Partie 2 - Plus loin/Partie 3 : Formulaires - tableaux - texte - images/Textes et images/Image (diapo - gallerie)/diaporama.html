@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style type="text/css">
+  img
+  {
+    position: absolute; // Les images vont se superposer
+    left: 0px; // A gauche
+    top: 0px; // et en haut de la feuille
+    display: none; // Par défaut, elles ne seront pas affichées
+  }
+  </style>
+</head>
+<body>
+  <img src="grandPaysage5.jpg" id="img5">
+  <img src="grandPaysage4.jpg" id="img4">
+  <img src="grandPaysage3.jpg" id="img3">
+  <img src="grandPaysage2.jpg" id="img2">
+  <img src="grandPaysage1.jpg" id="img1">
+
+  <script src="jquery-3.3.1.js"></script>
+  <script>
+  $(function() {
+    var i=0;
+    affiche();
+
+    function affiche() {
+      i++;
+      if (i==1) precedent = '#img5'
+      else precedent = '#img' + (i-1);
+      var actuel = '#img' + i;
+      $(precedent).fadeOut(2000);
+      $(actuel).fadeIn(2000);
+      if (i==5) i=0;
+    }
+
+    setInterval(affiche, 2000);
+  });
+  </script>
+
+</body>
+</html>

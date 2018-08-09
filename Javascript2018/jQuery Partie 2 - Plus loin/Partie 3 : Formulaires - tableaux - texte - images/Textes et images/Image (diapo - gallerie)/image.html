@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <img id="montagne" src="montagne.jpeg">
+
+  <script type="text/javascript" src="jquery-3.3.1.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $('#montagne').mouseover(function() {
+      $(this).attr('src','montagnegrande.jpg');
+    });
+    $('#montagne').mouseout(function() {
+      $(this).attr('src','montagne.jpeg');
+    });
+  });
+  </script>
+
+</body>
+</html>

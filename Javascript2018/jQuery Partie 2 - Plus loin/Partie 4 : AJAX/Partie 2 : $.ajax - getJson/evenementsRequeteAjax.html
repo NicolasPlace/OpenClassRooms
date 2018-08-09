@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="action">Lancer la requête AJAX</button><br /><br />
+  <div id="donnees" style="background-color: yellow"></div><br />
+  <div id="message"></div>
+
+  <script src="jquery-3.3.1.js"></script>
+  <script>
+  $(function() {
+    $('#action').click(function() {
+      $(document).ajaxStart(function() {
+        $('#message').html('Méthode ajaxStart exécutée<br>');
+      });
+      $(document).ajaxSend(function(ev, req, options){
+        $('#message').append('Méthode ajaxSend exécutée, ');
+        $('#message').append('nom du fichier : ' + options.url + '<br>');
+      });
+      $(document).ajaxStop(function(){
+        $('#message').append('Méthode ajaxStop exécutée<br>');
+      });
+      $(document).ajaxSuccess(function(ev, req, options){
+        $('#message').append('Méthode ajaxSuccess exécutée<br>');
+      });
+      $(document).ajaxComplete(function(ev, req, options){
+        $('#message').append('Méthode ajaxComplete exécutée<br>');
+      });
+      $(document).ajaxError(function(ev, req, options, erreur){
+        $('#message').append('Méthode ajaxError exécutée, ');
+        $('#message').append('erreur : ' + erreur + '<br>');
+      });
+      $('#donnees').load('affiche.htm');
+    });
+  });
+  </script>
+
+</body>
+</html>

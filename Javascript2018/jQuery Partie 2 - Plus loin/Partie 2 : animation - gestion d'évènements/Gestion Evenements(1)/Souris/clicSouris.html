@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <img id="target" src="chat.jpeg">
+
+<script src="jquery-3.3.1.js"></script>
+<script>
+  $(function() {
+    // Dimensions de la fenêtre
+    var largeur = ($(window).width()) - 225;
+    var hauteur = ($(window).height()) - 225;
+
+    // Affichage de la première image en (100, 100)
+    var p = $('#target').offset();
+    p.top = 50;
+    p.left = 50;
+    $('#target').offset(p);
+
+    // Gestion du clic et déplacement de l'image
+    $("#target").click(function() {
+      x = Math.floor(Math.random()*largeur);
+      y = Math.floor(Math.random()*hauteur);
+      var p = $('#target').offset();
+      p.top = y;
+      p.left = x;
+      $('#target').offset(p);
+    });
+  });
+</script>
+</body>
+</html>

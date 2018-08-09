@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sélecteurs CSS</title>
+  </head>
+  <body>
+    <div id="listes">
+      <ul id="ul1">
+        <li> Elément de liste 1
+          <ul id="ul2">
+            <li> Enfant 1</li>
+            <li> Enfant 2</li>
+          </ul>
+        </li>
+        <li> Elément de liste 2</li>
+        <li> Elément de liste 3</li>
+        <li> Elément de liste 4</li>
+      </ul>
+    </div>
+
+    <script src="../js/jquery-3.3.1.js"></script>
+    <script>
+      $(function() {
+        // Le code jQuery sera inséré ici
+        //$('li > ul').css('color','red');//modifie
+        //$('li + li').css('color','red');//modifie
+        //$('li:first-child').css('color','red');//modifie
+        $('li:first').css('color','red');//modifie
+        //$('li:last').css('color','red');//modifie
+        //$('li:last-child').css('color','red');//modifie
+        //$('li:only-child').css('color','red');//modifie
+        //$('li:nth-child(2)').css('color','red');   //modifie
+      });
+    </script>
+  </body>
+</html>

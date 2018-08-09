@@ -1,0 +1,60 @@
+body {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  background: url('../images/fond4.png') repeat-x center fixed;
+  background-color: #F0E390;
+}
+
+#list_section {
+  text-align: center;
+  height : 600px;
+}
+
+ul {
+  padding: 0;
+}
+
+/*paramètres CSS pour le 1er message, tout en haut*/
+li#firstMessage {
+  background-color:#3BBAFF;
+  color: #000;
+  font-size: 40px;
+  list-style-type: none;
+  width: 40%;
+  margin: 0px auto;
+  border-radius: 20px;
+  border: 10px solid #074363;
+  padding: 15px;
+  margin-bottom: 35px;
+}
+
+/*paramètres CSS communs aux 3 messages qui suivent le premier*/
+li#firstMessage ~ li {
+  color: black;
+  font-size: 30px;
+  list-style-type: none;
+  width: 30%;
+  margin: 0px auto;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 35px;
+  display : none;
+}
+
+li#secondMessage{
+  background-color: #F7A2FA;
+  border: 8px solid #840A8F;
+}
+
+li#thirdMessage{
+  background-color: #FADEA2;
+  border: 8px solid #BFA915;
+}
+
+li#fourthMessage{
+  background-color: #A2DBFA;
+  border: 8px solid #17B802;
+}
+
+#conteneur{
+  height : 600px;
+}

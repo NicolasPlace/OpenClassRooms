@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
+  <link rel="stylesheet" href="jquery-ui/jquery-ui.theme2.css">
+</head>
+<body>
+  <span>Déplacez les images et le div comme vous l'entendez</span><br /><br />
+  <div class="image" style="display : inline-block" ><img class="redim" src="images/paysage1.jpeg"></div>
+  <div class="image" style="display : inline-block" ><img class="redim" src="images/paysage2.jpeg"></div>
+  <div class="image" style="display : inline-block" ><img class="redim" src="images/paysage3.jpeg"></div>
+  <div>Déplacez-moi</div>
+  <br><br><br>
+  <div id="accordeon">
+    <h3><a href="#">Titre du bloc 1</a></h3>
+    <div>Contenu du bloc 1</div>
+    <h3><a href="#">Titre du bloc 2</a></h3>
+    <div>Contenu du bloc 2</div>
+    etc.
+  </div>
+  <br><br>
+
+  Date <input type="text" id="datepicker">
+  <br><br>
+
+  <div id="dialog" title="Boîte de dialogue de base">
+      Cette boîte de dialogue peut être redimensionnée, déplacée et fermée.
+  </div>
+
+  <script src="jquery-3.3.1.js"></script>
+  <script src="jquery-ui/jquery-ui.min.js"></script>
+  <script>
+  $(function() {
+    $('img,div.image').draggable();
+    $(".redim").resizable();
+    $("#accordeon").accordion();
+    $( "#datepicker").datepicker();
+    $( "#dialog" ).dialog({
+      modal: true,
+      buttons: {
+        "Oui": function() {
+          $('body').css('background', 'yellow');
+          $( this ).dialog( "close" );
+        },
+        "Non": function() {
+          $( this ).dialog( "close" );
+        }
+      }
+    });
+  });
+  </script>
+
+</body>
+</html>

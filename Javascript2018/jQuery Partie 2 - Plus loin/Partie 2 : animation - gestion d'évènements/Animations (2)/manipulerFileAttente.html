@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="ajouter">Ajouter animation</button>
+  <button id="annuler">Annuler la file d'attente</button><br />
+  <button id="remplacer">Remplacer la file d'attente</button>
+  <button id="retour">Ajouter une fonction de retour</button><br />
+  <img src="chien.jpeg" id="bon" style="position: relative;">
+  <img src="loup.jpeg" id="mauvais" style="position: relative;">
+
+  <script src="jquery-3.3.1.js"></script>
+  <script>
+  $(function() {
+    $('#ajouter').click( function() {
+      $('#bon').toggle(5000)
+      .queue(function() {
+        $('#mauvais').animate({left: '+=200'}, 'slow')
+        .animate({top: '+=200'}, 'slow')
+        .animate({left: '-=200'}, 'slow')
+        .animate({top: '-=200'}, 'slow');
+      });
+    });
+    $('#annuler').click( function() {
+      $('img').clearQueue();
+    });
+    $('#remplacer').click( function() {
+      $('#mauvais').css('left', 200).css('top', 200);
+      $('#mauvais').queue(function() {
+        $(this).animate({top: '-=200'}, 'slow')
+        .animate({top: '+=200', 'left': '-=200'}, 'slow')
+        .animate({top: '-=200'}, 'slow');
+        $(this).dequeue();
+      });
+    });
+    $('#retour').click( function() {
+      $('img').queue(function() {
+        alert('Animation terminée.');
+        $(this).dequeue();
+      });
+    });
+  });
+  </script>
+
+</body>
+</html>

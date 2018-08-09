@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <img id="un" src="montagne.jpeg"><br>
+  <button id="changement">Remplacer l'image</button>
+
+  <script src="jquery-3.3.1.js"></script>
+  <script>
+  $(function() {
+    $('#changement').click(function() {
+      $('#un').replaceWith('<img id="plage" src="plage.jpeg">');
+    });
+  });
+  </script>
+
+</body>
+</html>

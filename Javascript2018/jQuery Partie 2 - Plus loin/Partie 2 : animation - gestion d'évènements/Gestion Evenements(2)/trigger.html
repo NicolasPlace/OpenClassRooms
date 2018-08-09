@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<!--  Cliquez sur l'image<br />
+  <img src="chat.jpeg"><br />
+  <span id='message'></span><br />
+  <button>Cliquez ici</button>
+
+  <script src="jquery-3.3.1.js"></script>
+  <script>
+  $(function() {
+    $('img').click(function() {
+      $('#message').text('L\'image a été cliquée.').fadeIn(1000).fadeOut(1000);
+    });
+    $('button').click(function() {
+      $('img').trigger('click');
+    });
+  });
+  </script>
+-->
+  Cliquez sur l'image<br />
+  <img src="chat.jpeg"><br />
+  <span id='message'></span><br />
+  <button>Cliquez ici</button>
+
+  <script src="jquery-3.3.1.js"></script>
+  <script>
+    $(function() {
+      $('img').click(function(event,texte) {
+        if (texte == undefined)
+          texte = "par vous";
+        $('#message').text('L\'image a été cliquée ' + texte).fadeIn(1000).fadeOut(1000);
+      });
+      $('button').click(function() {
+        $('img').trigger('click', 'par jQuery');
+      });
+    });
+  </script>
+
+</body>
+</html>

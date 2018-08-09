@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style type="text/css">
+img
+{
+  padding: 5px;
+}
+</style>
+<body>
+
+  <img src="paysage1.jpg" id="grandPaysage1.jpg" class='miniature'>
+  <img src="paysage2.jpg" id="grandPaysage2.jpg" class='miniature'>
+  <img src="paysage3.jpg" id="grandPaysage3.jpg" class='miniature'>
+  <img src="paysage4.jpg" id="grandPaysage4.jpg" class='miniature'>
+  <img src="paysage5.jpg" id="grandPaysage5.jpg" class='miniature'><br />
+  <img id="grand" src="grandPaysage1.jpg" />
+
+  <script src="jquery-3.3.1.js"></script>
+  <script>
+  $(function() {
+    $('.miniature').css('border','5px white solid');
+    $('img:first').css('border','5px black solid');
+    $('.miniature').click(function() {
+      $('img').css('border','5px white solid');
+      $(this).css('border','5px black solid');
+      var nom = $(this).attr('id');
+      $('#grand').attr('src',nom);
+    });
+  });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style type="text/css">
+  img{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+  }
+  #montagneGrand{
+    display: none;
+  }
+  </style>
+</head>
+<body>
+
+  <img id="montagnePetit" src="montagne.jpeg">
+  <img id="montagneGrand" src="montagnegrande.jpg">
+
+  <script type="text/javascript" src="jquery-3.3.1.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $('#montagnePetit').mouseover(function() {
+      $(this).fadeOut(1000);
+      $('#montagneGrand').fadeIn(1000);
+    });
+    $('#montagneGrand').mouseout(function() {
+      $(this).fadeOut(1000);
+      $('#montagnePetit').fadeIn(1000);
+    });
+  });
+  </script>
+
+</body>
+</html>
